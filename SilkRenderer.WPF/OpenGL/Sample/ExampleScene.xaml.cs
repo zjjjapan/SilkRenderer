@@ -32,10 +32,11 @@ public partial class ExampleScene : UserControl
     private unsafe void Game_Loaded(object sender, RoutedEventArgs e)
     {
         GL gl = RenderContext.GL;
-        gl.ClearColor(0.2f, 0.3f, 0.3f, 1.0f);
+        gl.ClearColor(0.0f, 1.0f, 0.0f, 1.0f);
+        gl.Clear(ClearBufferMask.ColorBufferBit);
 
         float[] vertices = {
-                -0.5f, -0.5f, 0.0f,
+                -0.5f, 0.0f, 0.0f,
                  0.5f, -0.5f, 0.0f,
                  0.0f,  0.5f, 0.0f
             };
@@ -63,7 +64,7 @@ public partial class ExampleScene : UserControl
                 out vec4 FragColor;
                 void main()
                 {
-                    FragColor = vec4(1.0f, 0.5f, 0.2f, 1.0f);
+                    FragColor = vec4(1.0f, 1.0f, 1.0f, 1.0f);
                 }
             ";
 
@@ -93,11 +94,11 @@ public partial class ExampleScene : UserControl
 
         gl.Disable(EnableCap.DepthTest);
 
-        gl.ClearColor(SilkColor.ByDrawingColor(SilkColor.FromHsv(new Vector4(1.0f * hue, 1.0f * 0.75f, 1.0f * 0.75f, 1.0f))));
-        gl.Clear(ClearBufferMask.ColorBufferBit);
+        //gl.ClearColor(SilkColor.ByDrawingColor(SilkColor.FromHsv(new Vector4(1.0f * hue, 1.0f * 0.75f, 1.0f * 0.75f, 1.0f))));
+        //gl.Clear(ClearBufferMask.ColorBufferBit);
 
         gl.UseProgram(shaderProgram);
         gl.BindVertexArray(vao);
-        gl.DrawArrays(GLEnum.Triangles, 0, 3);
+        gl.DrawArrays(GLEnum.Lines, 0, 3);
     }
 }

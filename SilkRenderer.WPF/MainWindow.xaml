@@ -22,13 +22,19 @@
             </UniformGrid>
         </TabItem>
         <TabItem Header="OpenGL 1">
-            <UniformGrid Rows="2"
-                         Columns="2">
-                <sampleGL:ExampleScene />
-                <sampleGL:ExampleScene />
-                <sampleGL:ExampleScene />
-                <sampleGL:ExampleScene />
-            </UniformGrid>
+            <StackPanel Orientation="Vertical">
+                <Button Width="100" Height="30">111</Button>
+                <ScrollViewer VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Visible" Height="400">
+                    <StackPanel Orientation="Vertical">
+                        <sampleGL:ExampleScene Height="300" Width="400"/>
+                        <sampleGL:ExampleScene Height="300" Width="400"/>
+                        <sampleGL:ExampleScene Height="300" Width="400"/>
+                    </StackPanel>
+                </ScrollViewer>
+
+            </StackPanel>
+            
+            
         </TabItem>
         <TabItem Header="OpenGL 2">
             <UniformGrid Rows="1"
